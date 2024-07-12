@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="inflearn.kim.jpa.course.1st.basic" />
-        <module name="ex1-hello-jpa" />
+        <module name="jpashop" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
