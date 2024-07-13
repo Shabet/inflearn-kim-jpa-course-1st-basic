@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "member")
-public class MemberV4 {
+public class Member {
 
     @Id
     @GeneratedValue
@@ -14,12 +14,9 @@ public class MemberV4 {
     @Column(name = "username")
     private String username;
 
-//    @Column(name = "team_id")
-//    private Long teamId;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
-    private TeamV4 team;
+    private Team team;
 
     public Long getId() {
         return id;
@@ -37,15 +34,15 @@ public class MemberV4 {
         this.username = username;
     }
 
-    public TeamV4 getTeam() {
+    public Team getTeam() {
         return team;
     }
 
-    public void setTeam(TeamV4 team) {
+    public void setTeam(Team team) {
         this.team = team;
     }
 
-    public void changeTeam(TeamV4 team) {
+    public void changeTeam(Team team) {
         this.team = team;
 
         team.getMembers().add(this);

@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 
 import java.util.List;
 
-public class JpaMainV4 {
+public class JpaMain {
 
     public static void main(String[] args) {
 
@@ -21,15 +21,14 @@ public class JpaMainV4 {
             //제대로 설정한 경우
 
             //팀 저장
-            TeamV4 team = new TeamV4();
+            Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
             //회원 저장
-            MemberV4 member = new MemberV4();
+            Member member = new Member();
             member.setUsername("member1");
-//            member.setTeam(team); //**
-//            member.changeTeam(team); //**
+
             em.persist(member);
 
             team.addMember(member);
@@ -40,10 +39,10 @@ public class JpaMainV4 {
 //            em.flush();
 //            em.clear();
 
-            TeamV4 findTeam = em.find(TeamV4.class, team.getId()); //1차 캐시
-            List<MemberV4> members = findTeam.getMembers();
+            Team findTeam = em.find(Team.class, team.getId()); //1차 캐시
+            List<Member> members = findTeam.getMembers();
             System.out.println("=======================");
-            for (MemberV4 m : members) {
+            for (Member m : members) {
                 System.out.println("m = " + m.getUsername());
             }
             System.out.println("=======================");
