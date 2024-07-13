@@ -3,19 +3,41 @@ package jpabook.jpashop.domain;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "ORDERS")
+@Table(name = "orders")
 public class Order {
 
     @Id @GeneratedValue
-    @Column(name = "ORDER_ID")
+    @Column(name = "order_id")
     private Long id;
 
-    @Column(name = "MEMBER_ID")
-    private Long memberId;
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-/*    private Member member;
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    private LocalDateTime orderDate;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Member getMember() {
         return member;
@@ -23,10 +45,22 @@ public class Order {
 
     public void setMember(Member member) {
         this.member = member;
-    }*/
+    }
 
-    private LocalDateTime orderDate;
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
 
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+    public void setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
+
 }
