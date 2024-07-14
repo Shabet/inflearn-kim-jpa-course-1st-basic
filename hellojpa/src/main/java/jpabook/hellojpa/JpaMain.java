@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-package jpabook.hellojpa.ManyToMan1;
-=======
-package jpabook.hellojpa.ManyToMany;
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
+package jpabook.hellojpa;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
-<<<<<<< HEAD
-=======
-import jpabook.hellojpa.OneToOne2.MemberV4;
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
-public class JpaMainV5 {
+public class JpaMain {
 
     public static void main(String[] args) {
 

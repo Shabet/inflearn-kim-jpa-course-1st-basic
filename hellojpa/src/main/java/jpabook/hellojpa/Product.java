@@ -1,4 +1,4 @@
-package jpabook.hellojpa.ManyToMany2;
+package jpabook.hellojpa;
 
 import jakarta.persistence.*;
 
@@ -6,11 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-<<<<<<< HEAD
-public class ProductV6 {
-=======
 public class Product {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     @Id
     @GeneratedValue

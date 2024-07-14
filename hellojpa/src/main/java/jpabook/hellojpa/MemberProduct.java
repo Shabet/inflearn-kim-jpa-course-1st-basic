@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-package jpabook.hellojpa.ManyToMany2;
+package jpabook.hellojpa;
 
 import jakarta.persistence.*;
 
@@ -14,17 +13,14 @@ public class MemberProduct {
 
     @ManyToOne
     @JoinColumn(name = "member_id")
-    private MemberV6 member;
+    private Member member;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductV6 product;
+    private Product product;
 
     private int count;
     private int price;
 
     private LocalDateTime orderDateTime;
-=======
-package jpabook.hellojpa.ManyToMany2;public class MemberProduct {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 }
