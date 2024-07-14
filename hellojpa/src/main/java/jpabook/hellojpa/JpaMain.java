@@ -16,7 +16,24 @@ public class JpaMain {
         tx.begin();
 
         try {
-            //다대다
+
+            Movie movie = new Movie();
+            movie.setDirector("빅터 플레밍");
+            movie.setActor("비비안 리");
+            movie.setName("바람과 함께 사라지다.");
+            movie.setPrice(10000);
+
+            em.persist(movie);
+
+            em.flush();
+            em.clear();
+
+//            Movie findMovie = em.find(Movie.class, movie.getId());
+//            System.out.println("findMovie = " + findMovie);
+
+            Item item = em.find(Item.class, movie.getId());
+            System.out.println("findMovie = " + item);
+
 
             tx.commit();
         } catch (Exception e) {

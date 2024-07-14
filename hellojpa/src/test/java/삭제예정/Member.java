@@ -1,4 +1,4 @@
-package jpabook.hellojpa;
+package 삭제예정;
 
 
 import jakarta.persistence.*;
