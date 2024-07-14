@@ -1,13 +1,15 @@
-package jpabook.hellojpa;
+package jpabook.hellojpa.OneToMany2;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-import java.util.List;
-
+<<<<<<< HEAD
+public class JpaMainV2 {
+=======
 public class JpaMain {
+>>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     public static void main(String[] args) {
 
@@ -18,34 +20,26 @@ public class JpaMain {
         tx.begin();
 
         try {
-            //제대로 설정한 경우
-
-            //팀 저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
+            //일대다 양방향
 
             //회원 저장
+<<<<<<< HEAD
+            MemberV2 member = new MemberV2();
+=======
             Member member = new Member();
+>>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
             member.setUsername("member1");
-
             em.persist(member);
 
-            team.addMember(member);
-
-//            //양방향일때 해주는게 좋다.
-//            team.getMembers().add(member);
-
-//            em.flush();
-//            em.clear();
-
-            Team findTeam = em.find(Team.class, team.getId()); //1차 캐시
-            List<Member> members = findTeam.getMembers();
-            System.out.println("=======================");
-            for (Member m : members) {
-                System.out.println("m = " + m.getUsername());
-            }
-            System.out.println("=======================");
+            //팀 저장
+<<<<<<< HEAD
+            TeamV2 team = new TeamV2();
+=======
+            Team team = new Team();
+>>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
+            team.setName("TeamA");
+            team.getMembers().add(member);
+            em.persist(team);
 
             tx.commit();
         } catch (Exception e) {

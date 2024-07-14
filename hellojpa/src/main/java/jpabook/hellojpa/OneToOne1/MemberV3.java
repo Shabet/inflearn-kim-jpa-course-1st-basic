@@ -1,10 +1,14 @@
+<<<<<<< HEAD
+package jpabook.hellojpa.OneToOne1;
+=======
 package jpabook.hellojpa;
+>>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "member")
-public class Member {
+public class MemberV3 {
 
     @Id
     @GeneratedValue
@@ -14,9 +18,19 @@ public class Member {
     @Column(name = "username")
     private String username;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
-    private Team team;
+<<<<<<< HEAD
+    @OneToOne
+    @JoinColumn(name = "locker_id")
+    private LockerV3 locker;
+=======
+//    @ManyToOne
+//    @JoinColumn(name = "team_id", insertable = false, updatable = false)
+//    private TeamV3 team;
+
+    @OneToOne
+    @JoinColumn(name = "locker_id")
+    private Locker locker;
+>>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     public Long getId() {
         return id;
@@ -32,19 +46,5 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
-    public void changeTeam(Team team) {
-        this.team = team;
-
-        team.getMembers().add(this);
     }
 }
