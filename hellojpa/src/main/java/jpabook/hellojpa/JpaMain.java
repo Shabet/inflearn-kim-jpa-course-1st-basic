@@ -20,28 +20,20 @@ public class JpaMain {
         try {
 
             Member member = new Member();
-            member.setUsername("user1");
-            member.setCreatedBy("kim");
-            member.setCreatedDate(LocalDateTime.now());
+            member.setUsername("hello");
             em.persist(member);
-
-            Movie movie = new Movie();
-            movie.setDirector("빅터 플레밍");
-            movie.setActor("비비안 리");
-            movie.setName("바람과 함께 사라지다.");
-            movie.setPrice(10000);
-
-            em.persist(movie);
 
             em.flush();
             em.clear();
 
-//            Movie findMovie = em.find(Movie.class, movie.getId());
-//            System.out.println("findMovie = " + findMovie);
+            Member m1 = em.find(Member.class, member.getId());
+            Member findMember = em.getReference(Member.class, member.getId());
+            logic(m1, findMember);
 
-            Item item = em.find(Item.class, movie.getId());
-            System.out.println("findMovie = " + item);
-
+            System.out.println("before findMember = " + findMember.getClass());
+            System.out.println("findMember.id = " + findMember.getId());
+            System.out.println("findMember.username = " + findMember.getUsername());
+            System.out.println("after  findMember = " + findMember.getClass());
 
             tx.commit();
         } catch (Exception e) {
@@ -51,5 +43,11 @@ public class JpaMain {
         }
 
         emf.close();
+    }
+
+    private static void logic(Member m1, Member m2) {
+        System.out.println("m1 == m2: " + (m1 == m2));
+        System.out.println("m1 == m2: " + (m1 instanceof Member));
+        System.out.println("m1 == m2: " + (m2 instanceof Member));
     }
 }
