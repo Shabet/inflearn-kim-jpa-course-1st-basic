@@ -5,6 +5,8 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
+import java.time.LocalDateTime;
+
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -16,6 +18,12 @@ public class JpaMain {
         tx.begin();
 
         try {
+
+            Member member = new Member();
+            member.setUsername("user1");
+            member.setCreatedBy("kim");
+            member.setCreatedDate(LocalDateTime.now());
+            em.persist(member);
 
             Movie movie = new Movie();
             movie.setDirector("빅터 플레밍");
