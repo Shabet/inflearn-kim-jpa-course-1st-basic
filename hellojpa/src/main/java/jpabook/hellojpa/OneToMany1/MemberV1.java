@@ -4,11 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "member")
-<<<<<<< HEAD
 public class MemberV1 {
-=======
-public class Member {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     @Id
     @GeneratedValue

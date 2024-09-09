@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-package jpabook.hellojpa.ManyToMan1;
-=======
-package jpabook.hellojpa.ManyToMany;
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
+package jpabook.hellojpa.ManyToMany1;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

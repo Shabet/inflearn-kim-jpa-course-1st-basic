@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-package jpabook.hellojpa.ManyToMany2;
+package jpabook.hellojpa;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-public class MemberProduct {
+public class MemberProductV2_1 {
 
     @Id
     @GeneratedValue
@@ -14,17 +13,14 @@ public class MemberProduct {
 
     @ManyToOne
     @JoinColumn(name = "member_id")
-    private MemberV6 member;
+    private MemberV2_1 member;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    private ProductV6 product;
+    private ProductV2_1 product;
 
     private int count;
     private int price;
 
     private LocalDateTime orderDateTime;
-=======
-package jpabook.hellojpa.ManyToMany2;public class MemberProduct {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 }

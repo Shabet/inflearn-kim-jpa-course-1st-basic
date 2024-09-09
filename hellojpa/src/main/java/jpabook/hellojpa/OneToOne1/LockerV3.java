@@ -3,11 +3,8 @@ package jpabook.hellojpa.OneToOne1;
 import jakarta.persistence.*;
 
 @Entity
-<<<<<<< HEAD
+@Table(name = "locker")
 public class LockerV3 {
-=======
-public class Locker {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     @Id
     @GeneratedValue
@@ -15,6 +12,7 @@ public class Locker {
 
     private String name;
 
-    @OneToOne(mappedBy = "locker")
-    private MemberV3 member;
+    public void setName(String name) {
+        this.name = name;
+    }
 }

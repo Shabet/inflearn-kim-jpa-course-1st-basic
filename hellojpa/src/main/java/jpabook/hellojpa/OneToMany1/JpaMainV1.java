@@ -5,11 +5,10 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
-<<<<<<< HEAD
+/*
+ * subsection 2. 일대다[1:N]
+ */
 public class JpaMainV1 {
-=======
-public class JpaMain {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
     public static void main(String[] args) {
 
@@ -28,13 +27,9 @@ public class JpaMain {
             em.persist(member);
 
             //팀 저장
-<<<<<<< HEAD
             TeamV1 team = new TeamV1();
-=======
-            Team team = new Team();
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
             team.setName("TeamA");
-            team.getMembers().add(member);
+            team.getMembers().add(member); // member 테이블에 update 문이 실행됨.
             em.persist(team);
 
             tx.commit();

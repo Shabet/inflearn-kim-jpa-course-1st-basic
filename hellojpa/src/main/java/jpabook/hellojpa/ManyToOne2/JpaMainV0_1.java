@@ -1,4 +1,4 @@
-package jpabook.hellojpa.OneToMany2;
+package jpabook.hellojpa.ManyToOne2;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -6,9 +6,9 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 /*
- * subsection 2. 일대다[1:N]
+ * subsection 1. 다대일[N:1]
  */
-public class JpaMainV2 {
+public class JpaMainV0_1 {
 
     public static void main(String[] args) {
 
@@ -19,18 +19,20 @@ public class JpaMainV2 {
         tx.begin();
 
         try {
-            //일대다 양방향
-
-            //회원 저장
-            MemberV2 member = new MemberV2();
-            member.setUsername("member1");
-            em.persist(member);
+            //다대일 양방향
 
             //팀 저장
-            TeamV2 team = new TeamV2();
+            TeamV0_1 team = new TeamV0_1();
             team.setName("TeamA");
-            team.getMembers().add(member);
             em.persist(team);
+
+            //회원 저장
+            MemberV0_1 member = new MemberV0_1();
+            member.setUsername("member1");
+            member.setTeam(team);
+            em.persist(member);
+
+            team.getMembers().add(member); // 추가
 
             tx.commit();
         } catch (Exception e) {

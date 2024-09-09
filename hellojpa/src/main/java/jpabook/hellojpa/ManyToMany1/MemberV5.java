@@ -1,10 +1,13 @@
-package jpabook.hellojpa.OneToMany2;
+package jpabook.hellojpa.ManyToMany1;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "member")
-public class MemberV2 {
+public class MemberV5 {
 
     @Id
     @GeneratedValue
@@ -14,10 +17,13 @@ public class MemberV2 {
     @Column(name = "username")
     private String username;
 
-    // 추가
+    @ManyToMany
+    @JoinTable(name = "member_product")
+    private List<ProductV5> products = new ArrayList<ProductV5>();
+
     @ManyToOne
     @JoinColumn(name = "team_id", insertable = false, updatable = false)
-    private TeamV2 team;
+    private TeamV5 team;
 
     public Long getId() {
         return id;

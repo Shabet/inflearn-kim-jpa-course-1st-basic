@@ -1,10 +1,10 @@
-package jpabook.hellojpa.OneToMany2;
+package jpabook.hellojpa.ManyToOne1;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "member")
-public class MemberV2 {
+//@Table(name = "member")
+public class MemberV0 {
 
     @Id
     @GeneratedValue
@@ -14,10 +14,10 @@ public class MemberV2 {
     @Column(name = "username")
     private String username;
 
-    // 추가
+    // 연관관계 매핑
     @ManyToOne
-    @JoinColumn(name = "team_id", insertable = false, updatable = false)
-    private TeamV2 team;
+    @JoinColumn(name = "team_id")
+    private TeamV0 team;
 
     public Long getId() {
         return id;
@@ -33,5 +33,13 @@ public class MemberV2 {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setTeam(TeamV0 team) {
+        this.team = team;
+    }
+
+    public TeamV0 getTeam() {
+        return team;
     }
 }

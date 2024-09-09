@@ -1,19 +1,22 @@
-package jpabook.hellojpa.ManyToMany2;
+package jpabook.hellojpa;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ProductV6 {
+public class ProductV2_1 {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
 
     @OneToMany(mappedBy = "product")
-    private List<MemberProductV6> memberProducts = new ArrayList<>();
+    private List<MemberProductV2_1> memberProducts = new ArrayList<>();
 
     public Long getId() {
         return id;

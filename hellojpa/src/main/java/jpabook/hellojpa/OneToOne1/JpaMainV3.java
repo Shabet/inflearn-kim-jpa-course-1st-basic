@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package jpabook.hellojpa.OneToOne1;
-=======
-package jpabook.hellojpa;
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -22,19 +18,16 @@ public class JpaMainV3 {
         try {
             //일대일 단방향
 
+            //락커 저장
+            LockerV3 locker = new LockerV3();
+            locker.setName("locker1");
+            em.persist(locker);
+
             //회원 저장
             MemberV3 member = new MemberV3();
             member.setUsername("member1");
+            member.setLocker(locker);
             em.persist(member);
-<<<<<<< HEAD
-=======
-//
-//            //팀 저장
-//            TeamV2 team = new TeamV2();
-//            team.setName("TeamA");
-//            team.getMembers().add(member);
-//            em.persist(team);
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 
             tx.commit();
         } catch (Exception e) {

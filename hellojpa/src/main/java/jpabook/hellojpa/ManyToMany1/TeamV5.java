@@ -1,4 +1,4 @@
-package jpabook.hellojpa.OneToMany1;
+package jpabook.hellojpa.ManyToMany1;
 
 import jakarta.persistence.*;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "team")
-public class TeamV1 {
+public class TeamV5 {
 
     @Id
     @GeneratedValue
@@ -17,7 +17,7 @@ public class TeamV1 {
 
     @OneToMany
     @JoinColumn(name = "team_id")
-    private List<MemberV1> members = new ArrayList<>();
+    private List<MemberV5> members = new ArrayList<>();
 
     public Long getId() {
         return Id;
@@ -35,11 +35,11 @@ public class TeamV1 {
         this.name = name;
     }
 
-    public List<MemberV1> getMembers() {
+    public List<MemberV5> getMembers() {
         return members;
     }
 
-    public void setMembers(List<MemberV1> members) {
+    public void setMembers(List<MemberV5> members) {
         this.members = members;
     }
 }
