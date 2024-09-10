@@ -1,9 +1,9 @@
-package jpabook.hellojpa;
+package jpabook.hellojpa.V1;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Member extends BaseEntity{
+public class MemberV1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +12,10 @@ public class Member extends BaseEntity{
 
     @Column(name = "username")
     private String username;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private TeamV1 team;
 
     public Long getId() {
         return id;
@@ -27,5 +31,13 @@ public class Member extends BaseEntity{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public TeamV1 getTeam() {
+        return team;
+    }
+
+    public void setTeam(TeamV1 team) {
+        this.team = team;
     }
 }
