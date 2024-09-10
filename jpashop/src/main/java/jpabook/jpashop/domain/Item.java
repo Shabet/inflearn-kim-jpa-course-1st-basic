@@ -10,7 +10,7 @@ public class Item {
 
     @Id
     @GeneratedValue
-    @Column(name = "ITEM_ID")
+    @Column(name = "item_id")
     private Long id;
 
     private String name;

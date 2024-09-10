@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
@@ -27,7 +26,4 @@ public class Category {
             joinColumns = @JoinColumn(name = "category_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
-=======
-package jpabook.jpashop.domain;public class Category {
->>>>>>> c11722e781104f8cb59885c7d4566ad0a753a26c
 }
