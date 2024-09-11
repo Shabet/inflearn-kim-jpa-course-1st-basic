@@ -6,10 +6,13 @@ subsection01. 프록시
  - V1
 
 subsection02. 즉시 로딩과 지연 로딩
+ - V2 지연 로딩
+ - V3 즉시 로딩
+ - V4 즉시 로딩 : N+1 problem
 
 subsection03. 영속성 전이(CASCADE)와 고아 객체
+ - 
 
 subsection04. 실전 예제5 - 연관관계 관리
-
-
+ - 
 ```
